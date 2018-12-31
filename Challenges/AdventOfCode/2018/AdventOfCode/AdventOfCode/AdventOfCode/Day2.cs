@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using NUnit.Framework;
 using NUnit.Framework.Internal.Execution;
 
@@ -52,10 +53,10 @@ namespace AdventOfCode
                         int value;
                         if (!three.TryGetValue(item.Key, out value))
                             three.Add(item.Key, item.Value);
-                        countthree++;
+                        //countthree++;
                     }
                 }
-
+                Console.WriteLine("a");
             }
 
             Assert.AreEqual(two.Count*three.Count, 494);
