@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using NUnit.Framework;
+using NUnit.Framework.Internal;
 using NUnit.Framework.Internal.Execution;
 
 namespace AdventOfCode
@@ -50,6 +51,53 @@ namespace AdventOfCode
             }
 
             Assert.AreEqual(counttwo*countthree, 7163);
+        }
+
+        [Test]
+        public void TestDay2Part2()
+        {
+            //Load file
+            string[] lines = System.IO.File.ReadAllLines(@"C:\temp\repo\CodeChallenges\Challenges\AdventOfCode\2018\Day 2\data.txt");
+            int counttwo = 0;
+            int countthree = 0;
+
+            string totalwords = "";
+            for (int i = 0; i < lines.Length; i++)
+            {
+                for (int j = i + 1; j < lines.Length; j++)
+                {
+                    //compare two strings
+                    string box = lines[i];
+                    string nextBox = lines[j];
+                    int distance = distancebetweenBoxes(box, nextBox, out var same);
+                    if (distance == 1)
+                    {
+                        totalwords += same;
+                    }
+                }
+            }
+
+            Assert.AreEqual(totalwords, "ighfbyijnoumxjlxevacpwqtr");
+        }
+
+        public int distancebetweenBoxes(string box, string nextBox, out string same)
+        {
+            int difference = 0;
+            same = "";
+            for (int i = 0; i < box.Length; i++)
+            {
+                if (box[i] != nextBox[i])
+                {
+                    difference++;
+                }
+                else
+                {
+                    same += box[i];
+                }
+                    
+            }
+
+            return difference;
         }
     }
 }
