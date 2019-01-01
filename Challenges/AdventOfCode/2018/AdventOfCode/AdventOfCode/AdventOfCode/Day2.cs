@@ -13,53 +13,43 @@ namespace AdventOfCode
         }
 
         [Test]
-        public void TestDay2()
+        public void TestDay2Part1()
         {
             //Load file
             string[] lines = System.IO.File.ReadAllLines(@"C:\temp\repo\CodeChallenges\Challenges\AdventOfCode\2018\Day 2\data.txt");
             int counttwo = 0;
             int countthree = 0;
-            Dictionary<char, int> two = new Dictionary<char, int>();
-            Dictionary<char, int> three = new Dictionary<char, int>();
-            foreach (var text in lines)
+
+
+            foreach (var word in lines)
             {
-                Dictionary<char, int> repetition = new Dictionary<char, int>();
-                foreach (var word in text)
+                var letterCounts = new Dictionary<char, int>();
+
+                bool doubleFound = false;
+                bool tripleFound = false;
+
+                foreach (char c in word)
                 {
-                    int value;
-                    if (!repetition.TryGetValue(word, out value))
-                    {
-                        repetition.Add(word, 1);
-                    }
-                    else
-                    {
-                        repetition[word]++;
-                    }
+                    letterCounts.TryGetValue(c, out var current);
+                    letterCounts[c] = current + 1;
                 }
 
-
-                foreach (var item in repetition)
+                foreach (var count in letterCounts.Values)
                 {
-                    if (item.Value == 2)
+                    if (count == 2 && !doubleFound)
                     {
-                        int value;
-                        if (!two.TryGetValue(item.Key, out value))
-                            two.Add(item.Key, item.Value);
-                        //counttwo++;
+                        doubleFound = true;
+                        ++counttwo;
                     }
-
-                    if (item.Value == 3)
+                    else if (count == 3 && !tripleFound)
                     {
-                        int value;
-                        if (!three.TryGetValue(item.Key, out value))
-                            three.Add(item.Key, item.Value);
-                        //countthree++;
+                        tripleFound = true;
+                        ++countthree;
                     }
                 }
-                Console.WriteLine("a");
             }
 
-            Assert.AreEqual(two.Count*three.Count, 494);
+            Assert.AreEqual(counttwo*countthree, 7163);
         }
     }
 }
