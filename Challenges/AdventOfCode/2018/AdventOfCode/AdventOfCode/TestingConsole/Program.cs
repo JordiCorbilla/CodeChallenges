@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Globalization;
 
 namespace TestingConsole
 {
@@ -15,6 +13,8 @@ namespace TestingConsole
             {
                 Matrix[i] = new char[1000];
             }
+
+            InitMatrix();
 
             //Load the data
             string[] lines = System.IO.File.ReadAllLines(@"C:\temp\repo\CodeChallenges\Challenges\AdventOfCode\2018\Day 3\data.txt");
@@ -74,10 +74,20 @@ namespace TestingConsole
                 string row = "";
                 for (int j = 0; j < 1000; j++)
                 {
-                    Matrix[i][j] = '.';
                     row += Matrix[i][j];
                 }
                 Console.WriteLine(row);
+            }
+        }
+
+        public static void InitMatrix()
+        {
+            for (int i = 0; i < 1000; i++)
+            {
+                for (int j = 0; j < 1000; j++)
+                {
+                    Matrix[i][j] = '.';
+                }
             }
         }
 
@@ -90,7 +100,6 @@ namespace TestingConsole
                     string row = "";
                     for (int j = 0; j < 1000; j++)
                     {
-                        Matrix[i][j] = '.';
                         row += Matrix[i][j];
                     }
                     file.WriteLine(row);
