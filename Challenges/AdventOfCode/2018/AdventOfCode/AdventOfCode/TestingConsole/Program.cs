@@ -50,6 +50,9 @@ namespace TestingConsole
 
             RenderMatrix();
             FlushMatrix();
+
+            int count = CountOverlap();
+            Console.WriteLine(count); //solution 118223
             Console.ReadKey();
         }
 
@@ -105,6 +108,21 @@ namespace TestingConsole
                     file.WriteLine(row);
                 }
             }
+        }
+
+        public static int CountOverlap()
+        {
+            int count = 0;
+            for (int i = 0; i < 1000; i++)
+            {
+                for (int j = 0; j < 1000; j++)
+                {
+                    if (Matrix[i][j] == 'x')
+                        count++;
+                }
+            }
+
+            return count;
         }
     }
 }
