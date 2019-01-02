@@ -6,7 +6,7 @@ namespace TestingConsole
     {
         public static char[][] Matrix;
 
-        static void Main(string[] args)
+        static void Main()
         {
             Matrix = new char[1000][];
             for (int i = 0; i < 1000; i++)

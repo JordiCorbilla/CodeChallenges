@@ -68,8 +68,7 @@ namespace AdventOfCode
                 foreach (var item in frequencies)
                 {
                     frequency += item;
-                    bool value;
-                    if (!frequencyReached.TryGetValue(frequency, out value))
+                    if (!frequencyReached.TryGetValue(frequency, out _))
                     {
                         frequencyReached.Add(frequency, true);
                     }
