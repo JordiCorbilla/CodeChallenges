@@ -1,17 +1,6 @@
 --- Part Two ---
-Confident that your list of box IDs is complete, you're ready to find the boxes full of prototype fabric.
+Amidst the chaos, you notice that exactly one claim doesn't overlap by even a single square inch of fabric with any other claim. If you can somehow draw attention to it, maybe the Elves will be able to make Santa's suit after all!
 
-The boxes will have IDs which differ by exactly one character at the same position in both strings. For example, given the following box IDs:
+For example, in the claims above, only claim 3 is intact after all claims are made.
 
-abcde
-fghij
-klmno
-pqrst
-fguij
-axcye
-wvxyz
-The IDs abcde and axcye are close, but they differ by two characters (the second and fourth). However, the IDs fghij and fguij differ by exactly one character, the third (h and u). Those must be the correct boxes.
-
-What letters are common between the two correct box IDs? (In the example above, this is found by removing the differing character from either ID, producing fgij.)
-
-Although it hasn't changed, you can still get your puzzle input.
+What is the ID of the only claim that doesn't overlap?
